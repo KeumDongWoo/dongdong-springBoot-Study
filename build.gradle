@@ -1,0 +1,35 @@
+buildscript {
+    ext{    //build.gradle에서 사용하는 전역변수를 설정
+        springBootVersion = '2.1.7.RELEASE' //springBootVersion 전역변수를 생성(2.1.7.RELEASE 사용)
+    }
+    repositories { //각종 의존성(라이브러리)들을 어떤 원격저장소에서 받을지를 정함
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+//필수 플러그인
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management' //스프링부트의 의존성을 관리해주는 플러그인
+
+group 'com.dongdong'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {  //프로젝트 개발에 필요한 의존성들을 선언하는곳
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
