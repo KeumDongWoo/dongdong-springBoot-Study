@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor //기본 생성자 자동 추가
 @Entity //jpa 에노테이션 , 테이블과 링크될 클래스 , 카멜케이스 -> 언더스코어 네이밍으로 테이블 이름 매칭 ,
-public class Posts {
+public class Posts extends BaseTimeEntity{
 
     @Id //해당 테이블 PK 필드 나타냄
     @GeneratedValue(strategy = GenerationType.IDENTITY) //PK 생성 규칙 , GenerationType.IDENTITY -> auto increment
