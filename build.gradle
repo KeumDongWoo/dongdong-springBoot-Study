@@ -34,5 +34,6 @@ dependencies {  //프로젝트 개발에 필요한 의존성들을 선언하는�
     compile('org.projectlombok:lombok')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')//스프링 부트용 JPA 추상화 라이브러리
     compile('com.h2database:h2')    //인메모리디비
+    compile('org.springframework.boot:spring-boot-starter-mustache')//머스테치
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
