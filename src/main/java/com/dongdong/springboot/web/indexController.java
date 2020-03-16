@@ -18,8 +18,8 @@ public class indexController {
     }
 
     @GetMapping("/")
-    public String index(Model model){
-        model.addAttribute("posts",postsService.findAllDesc());
+    public String index(Model model){   //서버 템플릿 엔진에서 사용할수 있는 객체를 저장
+        model.addAttribute("posts",postsService.findAllDesc());//findAllDesc() 결과를 posts 로 index.mustache에 전달
         return "index";
     }
 }
