@@ -4,7 +4,7 @@ var main = {
         $('#btn-save').on('click', function () {
             _this.save();
         });
-        $('#btn-update').on('clikc',function () {
+        $('#btn-update').on('click',function () {
             _this.update();
         });
     },
@@ -31,7 +31,7 @@ var main = {
     update : function () {
         var data = {
             title : $("#title").val(),
-            contnet : $("#content").val()
+            content : $("#content").val()
         };
 
         var id = $("#id").val();
