@@ -4,6 +4,9 @@ var main = {
         $('#btn-save').on('click', function () {
             _this.save();
         });
+        $('#btn-update').on('clikc',function () {
+            _this.update();
+        });
     },
     save : function () {
         var data = {
