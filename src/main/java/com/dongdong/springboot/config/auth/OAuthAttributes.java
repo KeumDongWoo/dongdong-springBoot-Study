@@ -23,7 +23,7 @@ public class OAuthAttributes {
         this.email = email;
         this.picture = picture;
     }
-
+    //Of -> Oauth2User에서 반환하는 사용자 정보는 Map이기 때문에 값을 하나씩 변환
     public static OAuthAttributes of(String registrationId,
                                      String userNameAttributeName,
                                      Map<String,Object> attributes){
@@ -41,12 +41,13 @@ public class OAuthAttributes {
                 .build();
     }
 
+    //
     public User toEntity(){
         return User.builder()
                     .name(name)
                     .email(email)
                     .picture(picture)
-                    .role(Role.GUSET)
+                    .role(Role.GUSET)   //가입할때 기본권한을 GUESET
                     .build();
     }
 }

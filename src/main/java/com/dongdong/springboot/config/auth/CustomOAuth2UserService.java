@@ -28,17 +28,17 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         OAuth2UserService delegate = new DefaultOAuth2UserService();
         OAuth2User oAuth2User = delegate.loadUser(userRequest);
 
-        String registrationId = userRequest.getClientRegistration().getRegistrationId();
+        String registrationId = userRequest.getClientRegistration().getRegistrationId(); //로그인을 진행중인 서비스 구분
         String userNameAttributeName = userRequest
                 .getClientRegistration().getProviderDetails()
                 .getUserInfoEndpoint()
-                .getUserNameAttributeName();
+                .getUserNameAttributeName();    //OAuth2 로그인 진행시 키가되는 필드값
 
-        OAuthAttributes attributes = OAuthAttributes.of(registrationId,userNameAttributeName,oAuth2User.getAttributes());
+        OAuthAttributes attributes = OAuthAttributes.of(registrationId,userNameAttributeName,oAuth2User.getAttributes()); //OAuth2UsrServic를 통해 가져온 Oauth2User의 attributes를 담을 클래스
 
         User user = saveOrUpdate(attributes);
 
-        httpSession.setAttribute("user",new SessionUser(user));
+        httpSession.setAttribute("user",new SessionUser(user)); //세션에 사용자정보를 저장하기위한 dto 클래스
 
         return new DefaultOAuth2User(
                 Collections.singleton(new
