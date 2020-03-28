@@ -36,6 +36,7 @@ dependencies {  //프로젝트 개발에 필요한 의존성들을 선언하는�
     compile('com.h2database:h2')    //인메모리디비
     compile('org.springframework.boot:spring-boot-starter-mustache')//머스테치
     compile('org.springframework.boot:spring-boot-starter-oauth2-client') //소셜로그인
+    compile('org.springframework.session:spring-session-jdbc')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     implementation 'org.springframework.boot:spring-boot-starter-security'
 }
